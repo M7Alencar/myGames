@@ -75,8 +75,8 @@ export class AppComponent implements OnInit {
       });
 
       $(document).on('click', '#links > a', () => {
-        if (window.innerWidth < 512) {
-          $('#links').slideUp('fast');
+        if (window.innerWidth < 512) { // Se a largura é menor que 512 px
+          $('#links').slideUp('fast'); // Oculta o menu principal
         }
       });
 
