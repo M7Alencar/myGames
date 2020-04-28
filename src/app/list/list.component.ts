@@ -89,6 +89,23 @@ changeOrderDir(direction: any) {
   return false; // Sai sem fazer nada
 
 }
+// Apaga um documento
+deleteGame(gameKey, gameTitle) {
 
+  // Mensagem para confirmar se deseja apagar (Observe o ! = NOT)
+  if (!confirm(`Oooops!\nTem certeza que deseja apagar "${gameTitle}" da sua coleção?`)) {
+    return false;
+  }
 
+  this.db.collection('games').doc(gameKey).delete()
+    .then(res => {
+      alert(`"${gameTitle}" foi apagado da sua coleção!\nClique em [Ok] para continuar.`);
+    })
+    .catch(err => {
+      console.error(`Falha ao apagar: ${err}`);
+    });
+
+  return false;
+
+}
 }
